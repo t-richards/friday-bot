@@ -1,5 +1,7 @@
 # friday-bot
 
+[![CircleCI](https://circleci.com/gh/t-richards/friday-bot.svg?style=svg)](https://circleci.com/gh/t-richards/friday-bot)
+
 Cool bot to post Friday videos to Slack
 
 ## Usage
