@@ -20,9 +20,6 @@ bin/friday-bot-crystal
 ```bash
 # Lint code
 crystal tool format
-
-# Run tests
-crystal spec
 ```
 
 ## Contributing
