@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: crystallang/crystal
+    steps:
+      - checkout
+
+      - run:
+          name: Crystal version
+          command: crystal --version
+
+      - run:
+          name: Shards version
+          command: shards --version
+
+      - restore_cache:
+          keys:
+            - crystal-v1-{{ checksum "shard.lock" }}
+            - crystal-v1-
+
+      - run:
+          name: Install dependencies
+          command: shards check || shards install
+
+      - save_cache:
+          key: crystal-v1-{{ checksum "shard.lock" }}
+          paths:
+            - ~/.cache/shards
+            - lib
+
+      - run:
+          name: Lint code
+          command: crystal tool format --check
+
+      - run:
+          name: Build app
+          command: shards build --release

@@ -1,0 +1,9 @@
+# Build
+/docs/
+/lib/
+/bin/
+/.shards/
+*.dwarf
+
+# Secrets
+.env

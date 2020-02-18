@@ -1,0 +1,15 @@
+name: friday-bot
+version: 0.0.1
+
+authors:
+  - Tom Richards <tom@tomrichards.net>
+
+dependencies:
+  dotenv:
+    github: gdotdesign/cr-dotenv
+
+targets:
+  friday-bot:
+    main: src/friday_bot.cr
+
+crystal: 0.33.0
