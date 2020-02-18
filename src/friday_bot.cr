@@ -3,8 +3,8 @@ Dotenv.load if File.readable?(".env")
 
 require "./slack_client"
 
-SLACK_TOKEN   = ENV.fetch("SLACK_TOKEN")
-SLACK_CHANNEL = ENV.fetch("SLACK_CHANNEL")
+SLACK_TOKEN      = ENV.fetch("SLACK_TOKEN")
+SLACK_CHANNEL_ID = ENV.fetch("SLACK_CHANNEL_ID")
 
 # Make array of video links
 FRIDAY_VIDEOS = [
@@ -21,7 +21,7 @@ class FridayBot
   end
 
   def initialize
-    @client = SlackClient.new(SLACK_TOKEN, SLACK_CHANNEL)
+    @client = SlackClient.new(SLACK_TOKEN, SLACK_CHANNEL_ID)
   end
 
   def call
@@ -55,7 +55,7 @@ class FridayBot
 
     # Choose a random video from the list
     random_video = FRIDAY_VIDEOS.sample(Random::Secure)
-    puts "Posting #{random_video} to #{SLACK_CHANNEL} at #{current_time}"
+    puts "Posting #{random_video} to #{SLACK_CHANNEL_ID} at #{current_time}"
 
     # Schedule it to be posted in the channel
     @client.schedule_message(random_video, current_time)
