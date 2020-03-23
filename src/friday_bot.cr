@@ -8,6 +8,7 @@ SLACK_CHANNEL_ID = ENV.fetch("SLACK_CHANNEL_ID")
 
 # Make array of video links
 FRIDAY_VIDEOS = [
+  "https://www.youtube.com/watch?v=7-iLzd-HKRg",
   "https://www.youtube.com/watch?v=94TZJO_PXhU",
   "https://www.youtube.com/watch?v=akT0wxv9ON8",
   "https://www.youtube.com/watch?v=kfVsfOSbJY0",
